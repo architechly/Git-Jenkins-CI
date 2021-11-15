@@ -4,7 +4,7 @@ class TestHello(unittest.TestCase):
     def setUp(self):
         app.testing = True
         self.app = app.test_client()
-        print("abcdec")
+        print("abcde")
     def test_hello(self):
         rv = self.app.get('/')
         self.assertEqual(rv.status, '200 OK')
