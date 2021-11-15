@@ -3,7 +3,7 @@ pipeline {
     stages {
 		stage('Skip the build'){
 			steps {
-				scmSkip(deleteBuild: true, skipPattern:'.*\[ci skip\].*')
+				scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
 			}
 		}
         stage('Static Analysis') {
