@@ -1,6 +1,11 @@
 pipeline {
     agent any 
     stages {
+		stage('Skip the build'){
+			steps {
+				scmSkip(deleteBuild: true, skipPattern:'.*\[ci skip\].*')
+			}
+		}
         stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code' 
