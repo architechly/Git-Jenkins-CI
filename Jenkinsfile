@@ -37,7 +37,7 @@ pipeline {
                 script {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
-					sshagent (credentials : ["${gitCreds}"] {
+					sshagent (credentials : ["${gitCreds}"]) {
 						sh "git commit -m '[ci skip] Upversion Build"
 						sh "git push"
 					}
