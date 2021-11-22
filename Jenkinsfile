@@ -44,7 +44,7 @@ pipeline {
 					//sshagent (credentials : ["${gitCreds}"]) {
 					//	ssh "git commit -m '[ci skip] Upversion Build"
 					//	ssh "git push"
-					}
+					//}
 				}
             }
         }
