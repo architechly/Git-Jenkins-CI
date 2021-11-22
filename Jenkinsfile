@@ -31,7 +31,7 @@ pipeline {
             steps {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
-					sh "git status"
+					//sh "git status"
 				}
                 
             }
@@ -41,10 +41,10 @@ pipeline {
                 script {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
-					//sshagent (credentials : ["${gitCreds}"]) {
-					//	ssh "git commit -m '[ci skip] Upversion Build"
-					//	ssh "git push"
-					//}
+					sshagent (credentials : ["${gitCreds}"]) {
+						sh "git commit -m '[ci skip] Upversion Build"
+						sh "git push"
+					}
 				}
             }
         }
