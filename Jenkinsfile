@@ -8,9 +8,11 @@ pipeline {
 	stages {
 		stage('Skip the build'){
 			steps {
-			  scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
-			  def test1= ${currentResult.currentResult}
-              echo 'skip the build ${test1}'
+			  script {
+				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
+				def test1= ${currentResult.currentResult}
+				echo 'skip the build ${test1}'
+			  }
 			} 			
 		}
 		
