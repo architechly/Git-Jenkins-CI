@@ -7,6 +7,10 @@ pipeline {
 				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci skip\\].*')
 			}
 		}
+		stage('Checkout') {
+			def gitCreds = "${env.GITCRED}"
+			git branch: 'develop', credentialsId: 'ssh-key-private', url:'git@github.com:architechly/Git-Jenkins-CI.git'
+		}
         stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code' 
