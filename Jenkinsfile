@@ -32,7 +32,7 @@ pipeline {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
 					bat "git status"
-					bat "touch test.txt"
+					bat "echo . 2>empty.txt"
 					bat "git add ."
 					//bat "git commit -m '[ci skip]'
 				}
