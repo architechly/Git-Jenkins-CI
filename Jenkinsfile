@@ -1,5 +1,16 @@
 pipeline {
-    agent any 
+    node("master") {
+		stage 'Checkout'
+		bin "git url: "git@github.com:architechly/Git-Jenkins-CI.git",
+		credentialsId: 'jenkins_ssh_key',
+		branch: master"
+
+  // The rest of your Groovy here...
+
+		stage 'Use Git'
+  // Do anything you like with your Git repo
+		sh 'git add -A && git commit -m "Update code" && git push origin master'
+	}
 	stages {
 		
 		stage('Skip the build'){
@@ -9,7 +20,7 @@ pipeline {
 		}
 		stage('Checkout') {
 			//def gitCreds = "${env.GITCRED}"
-			git branch: 'develop', credentialsId: 'ssh-key-private', url:'git@github.com:architechly/Git-Jenkins-CI.git'
+			bat "git branch: 'develop', credentialsId: 'ssh-key-private', url:'git@github.com:architechly/Git-Jenkins-CI.git'"
 		}
         stage('Static Analysis') {
             steps {
