@@ -63,7 +63,7 @@ pipeline {
 						sh "touch text55.txt"
 						sh "git add ."
 						sh "git commit -m '[ci skip] Upversion Build'"
-						sh "git push"
+						sh "git push --set-upstream origin develop"
 					}
 				}
             }
