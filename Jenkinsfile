@@ -12,7 +12,7 @@ pipeline {
 				try{
 					scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
 				} 
-				catch {
+				catch (err){
 					echo "Caught: ${err}"
 					currentBuild.result = 'FAILURE' 
 				}
