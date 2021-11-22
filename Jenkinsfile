@@ -16,7 +16,7 @@ pipeline {
 			steps {
 				script{
 			//def gitCreds = "${env.GITCRED}"
-					bat "git credentialsId: $gitCredentialId, url:$gitUrl"
+				//	bat "git credentialsId: $gitCredentialId, url:$gitUrl"
 				}
 			}
 		}
@@ -48,7 +48,7 @@ pipeline {
 					//bat "ssh-agent (credentials : ["${gitCreds}"])"
 					//bat "git status"
 					bat "git status"
-					bat "git credentialsId: 'ssh-key-private', url: 'https://github.com/architechly/Git-Jenkins-CI'"
+					//bat "git credentialsId: 'ssh-key-private', url: 'https://github.com/architechly/Git-Jenkins-CI'"
 					bat "git add ."
 					bat "git commit -m 'ci skip Upversion Build'"
 					bat "git push"
