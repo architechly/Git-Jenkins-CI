@@ -9,7 +9,7 @@ pipeline {
 		stage('Skip the build'){
 			steps {
 			  scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
-			  echo "${currentResult.currentResult}"
+			  //echo "${currentResult.currentResult}"
 			} 			
 		}
 		
