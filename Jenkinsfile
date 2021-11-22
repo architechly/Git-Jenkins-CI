@@ -9,7 +9,14 @@ pipeline {
 		
 		stage('Skip the build'){
 			steps {
-				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
+				try{
+					scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
+				} 
+				catch {
+					echo "Caught: ${err}"
+					currentBuild.result = 'FAILURE' 
+				}
+				
 			}
 		}
 		stage('Static Analysis') {
