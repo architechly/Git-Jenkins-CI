@@ -8,7 +8,7 @@ pipeline {
 	stages {
 		
 		stage('Skip the build'){
-			steps {
+			//steps {
 				try{
 					scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
 				} 
@@ -17,7 +17,7 @@ pipeline {
 					currentBuild.result = 'FAILURE' 
 				}
 				
-			}
+			//}
 		}
 		stage('Static Analysis') {
             steps {
