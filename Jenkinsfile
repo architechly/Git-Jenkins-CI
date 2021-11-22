@@ -6,17 +6,12 @@ pipeline {
 		deployBranch = 'develop'
 	}
 	stages {
-		try{
-			stage('Skip the build'){
-				steps {
-				  scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
-				} 			
-			}
+		stage('Skip the build'){
+			steps {
+			  scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
+			} 			
 		}
-		catch (err){
-			echo "Caught: ${err}"
-			currentBuild.result = 'FAILURE' 
-		}
+		
 		stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code' 
