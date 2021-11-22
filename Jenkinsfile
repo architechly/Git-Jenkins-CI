@@ -31,8 +31,7 @@ pipeline {
             steps {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
-					sh "git commit -m '[ci skip] Upversion Build"
-					sh "git push"
+					
 				}
                 
             }
