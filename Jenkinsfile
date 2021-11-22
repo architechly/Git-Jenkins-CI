@@ -43,7 +43,7 @@ pipeline {
 					bat "git config --global user.email 'hari.pk@hotmail.com'"
 					bat "git config --global user.name 'hariprasad'"
 					//bat "git credentialsId: 'ssh-key-private', url: 'https://github.com/architechly/Git-Jenkins-CI'"
-					bat "echo. 2>test1.txt"
+					bat "echo. 2>test2.txt"
 					bat "git add ."
 					bat "git commit -m 'cid'"
 					bat "git push"
