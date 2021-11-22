@@ -8,18 +8,15 @@ pipeline {
 	stages {
 		stage('Skip the build'){
 			steps {
-			  script {
-				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
-				def test1= ${currentResult.currentResult}
-				echo 'skip the build ${test1}'
-			  }
+			  scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
+			  echo "${currentResult.currentResult}"
 			} 			
 		}
 		
 		stage('Static Analysis') {
             steps {
-				def test= ${currentResult.currentResult}
-                echo 'Run the static analysis to the code ${test}' 
+				//def test= ${currentResult.currentResult}
+                echo 'Run the static analysis to the code ${currentResult.currentResult}' 
             }
         }
         stage('Compile') {
