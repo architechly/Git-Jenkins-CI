@@ -32,6 +32,7 @@ pipeline {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
 					bat "git status"
+					bat "ssh-add C:\Users\Hari\.ssh\id_rsa"
 				}
                 
             }
