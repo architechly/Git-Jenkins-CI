@@ -1,9 +1,7 @@
 pipeline {
     node("master") {
 		stage 'Checkout'
-		bin "git url: "git@github.com:architechly/Git-Jenkins-CI.git",
-		credentialsId: 'jenkins_ssh_key',
-		branch: master"
+		bin "git url: 'git@github.com:architechly/Git-Jenkins-CI.git',credentialsId: 'ssh-key-private',	branch: develop"
 
   // The rest of your Groovy here...
 
