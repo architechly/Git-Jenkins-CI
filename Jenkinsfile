@@ -34,7 +34,7 @@ pipeline {
 					bat "git status"
 					bat "echo . 2>empty.txt"
 					bat "git add ."
-					bat "git commit -m '[ci skip] Upversion Build'"
+					bat "git commit -m \"\[ci skip\] Upversion Build\""
 					bat "git push"
 					//bat "git commit -m '[ci skip]'
 				}
