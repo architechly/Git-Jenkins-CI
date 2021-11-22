@@ -58,8 +58,9 @@ pipeline {
                 script {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
+					echo "test ${currentBuild.number}"
 					def buildNumber = "test_" + currentBuild.number
-					echo ${buildNumber}
+					echo "The random number is: ${buildNumber}"
 					sshagent (credentials : ["${gitCreds}"]) {
 						sh "ssh-add /var/jenkins_home/.ssh/id_rsa"
 						sh "touch ${buildNumber}.txt"
