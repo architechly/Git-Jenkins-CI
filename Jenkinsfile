@@ -9,7 +9,7 @@ pipeline {
 		
 		stage('Skip the build'){
 			steps {
-				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci skip\\].*')
+				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci-skip\\].*')
 			}
 		}
 		stage('Static Analysis') {
@@ -58,9 +58,10 @@ pipeline {
                 script {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
+					def buildNumber = currentBuild.number
 					sshagent (credentials : ["${gitCreds}"]) {
 						sh "ssh-add /var/jenkins_home/.ssh/id_rsa"
-						sh "touch text65.txt"
+						sh "touch $buildNumber.txt"
 						sh "git add ."
 						sh "git commit -m '[ci-skip] Upversion Build'"
 						sh "git push --set-upstream origin develop"
