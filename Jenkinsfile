@@ -16,7 +16,7 @@ pipeline {
 			steps {
 				script{
 			//def gitCreds = "${env.GITCRED}"
-					bat "git branch: deployBranch, credentialsId: gitCredentialId, url:gitUrl"
+					bat "git credentialsId: $gitCredentialId, url:$gitUrl"
 				}
 			}
 		}
