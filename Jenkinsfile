@@ -14,7 +14,8 @@ pipeline {
 		
 		stage('Static Analysis') {
             steps {
-                echo 'Run the static analysis to the code' 
+			
+                echo 'Run the static analysis to the code ${currentBuild.result}' 
             }
         }
         stage('Compile') {
