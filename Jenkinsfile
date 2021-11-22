@@ -42,7 +42,7 @@ pipeline {
 					bat "git status"
 					//bat "git credentialsId: 'ssh-key-private', url: 'https://github.com/architechly/Git-Jenkins-CI'"
 					bat "git add ."
-					bat "git commit -m 'ci\\ skip\\ Upversion\\ Build'"
+					bat "git commit -m 'cid'"
 					bat "git push"
 					//bat "git commit -m '[ci skip]'
 				}
