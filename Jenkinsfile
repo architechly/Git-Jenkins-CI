@@ -16,7 +16,7 @@ pipeline {
 		stage('Static Analysis') {
             steps {
 				//def test= ${currentResult.currentResult}
-                echo 'Run the static analysis to the code ${currentResult.currentResult}' 
+                echo 'Run the static analysis to the code ' 
             }
         }
         stage('Compile') {
