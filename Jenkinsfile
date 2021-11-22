@@ -13,8 +13,12 @@ pipeline {
 			}
 		}
 		stage('Checkout') {
+			steps {
+				script{
 			//def gitCreds = "${env.GITCRED}"
-			bat "git branch: deployBranch, credentialsId: gitCredentialId, url:gitUrl"
+					bat "git branch: deployBranch, credentialsId: gitCredentialId, url:gitUrl"
+				}
+			}
 		}
         stage('Static Analysis') {
             steps {
