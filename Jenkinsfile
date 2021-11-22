@@ -31,11 +31,12 @@ pipeline {
             steps {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
-					bat "git status"
-					bat "echo . 2>empty.txt"
-					bat "git add ."
-					bat "git commit -m \"\[ci skip\] Upversion Build\""
-					bat "git push"
+					git status
+					//bat "git status"
+					//bat "echo . 2>empty.txt"
+					//bat "git add ."
+					//bat "git commit -m \"\[ci skip\] Upversion Build\""
+					//bat "git push"
 					//bat "git commit -m '[ci skip]'
 				}
                 
