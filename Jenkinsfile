@@ -12,15 +12,7 @@ pipeline {
 				scmSkip(deleteBuild: false, skipPattern:'.*\\[ci skip\\].*')
 			}
 		}
-		stage('Checkout') {
-			steps {
-				script{
-			//def gitCreds = "${env.GITCRED}"
-				//	bat "git credentialsId: $gitCredentialId, url:$gitUrl"
-				}
-			}
-		}
-        stage('Static Analysis') {
+		stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code' 
             }
