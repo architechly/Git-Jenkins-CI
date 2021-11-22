@@ -8,7 +8,7 @@ pipeline {
 			}
 		}
 		stage('Checkout') {
-			def gitCreds = "${env.GITCRED}"
+			//def gitCreds = "${env.GITCRED}"
 			git branch: 'develop', credentialsId: 'ssh-key-private', url:'git@github.com:architechly/Git-Jenkins-CI.git'
 		}
         stage('Static Analysis') {
