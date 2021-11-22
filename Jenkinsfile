@@ -59,6 +59,7 @@ pipeline {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
 					sshagent (credentials : ["${gitCreds}"]) {
+						sh "ssh-add /var/jenkins_home/.ssh/id_rsa"
 						sh "git commit -m '[ci skip] Upversion Build'"
 						sh "git push"
 					}
