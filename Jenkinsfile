@@ -59,9 +59,10 @@ pipeline {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
 					def buildNumber = "test_" + currentBuild.number
+					echo ${buildNumber}
 					sshagent (credentials : ["${gitCreds}"]) {
 						sh "ssh-add /var/jenkins_home/.ssh/id_rsa"
-						sh "touch $buildNumber.txt"
+						sh "touch ${buildNumber}.txt"
 						sh "git add ."
 						sh "git commit -m '[ci-skip] Upversion Build'"
 						sh "git push --set-upstream origin develop"
