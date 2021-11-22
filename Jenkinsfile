@@ -32,7 +32,9 @@ pipeline {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
 					bat "git status"
-					bat "ssh-add C:\Users\Hari\.ssh\id_rsa"
+					bat "touch test.txt"
+					bat "git add ."
+					//bat "git commit -m '[ci skip]'
 				}
                 
             }
@@ -43,7 +45,7 @@ pipeline {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
 					sshagent (credentials : ["${gitCreds}"]) {
-						sh "git commit -m '[ci skip] Upversion Build"
+						sh "git commit -m '[ci skip] Upversion Build'"
 						sh "git push"
 					}
 				}
