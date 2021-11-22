@@ -39,6 +39,7 @@ pipeline {
 					def gitCreds = "${env.GITCRED}"
 					//bat "ssh-agent (credentials : ["${gitCreds}"])"
 					//bat "git status"
+					bat "rm test2.txt"
 					bat "git status"
 					bat "git config --global user.email 'hari.pk@hotmail.com'"
 					bat "git config --global user.name 'hariprasad'"
@@ -46,7 +47,7 @@ pipeline {
 					bat "echo. 2>test2.txt"
 					bat "git add ."
 					bat "git commit -m 'cid'"
-					bat "git push"
+					bat "git push --set-upstream origin develop"
 					//bat "git commit -m '[ci skip]'
 				}
                 
