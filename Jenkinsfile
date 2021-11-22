@@ -40,6 +40,8 @@ pipeline {
 					//bat "ssh-agent (credentials : ["${gitCreds}"])"
 					//bat "git status"
 					bat "git status"
+					bat "git config --global user.email 'hari.pk@hotmail.com'"
+					bat "git config --global user.name 'hariprasad'"
 					//bat "git credentialsId: 'ssh-key-private', url: 'https://github.com/architechly/Git-Jenkins-CI'"
 					bat "git add ."
 					bat "git commit -m 'cid'"
