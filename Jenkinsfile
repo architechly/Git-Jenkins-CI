@@ -31,7 +31,7 @@ pipeline {
             steps {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
-					//sh "git status"
+					bat "git status"
 				}
                 
             }
