@@ -31,7 +31,8 @@ pipeline {
             steps {
 				script{
 					echo 'Run only crucial integration tests from the source code' 
-					bat "ssh-agent"
+					def gitCreds = "${env.GITCRED}"
+					bat "ssh-agent (credentials : ["${gitCreds}"])"
 					bat "git status"
 					//bat "git status"
 					//bat "echo . 2>empty.txt"
