@@ -29,7 +29,12 @@ pipeline {
         }
         stage('Run Integration Tests') {
             steps {
-                echo 'Run only crucial integration tests from the source code' 
+				script{
+					echo 'Run only crucial integration tests from the source code' 
+					ssh "git commit -m '[ci skip] Upversion Build"
+					ssh "git push"
+				}
+                
             }
         }
         stage('Publish Artifacts') {
@@ -38,8 +43,8 @@ pipeline {
 					echo 'Save the assemblies generated from the compilation' 
 					def gitCreds = "${env.GITCRED}"
 					sshagent (credentials : ["${gitCreds}"]) {
-						sh "git commit -m '[ci skip] Upversion Build"
-						sh "git push"
+						ssh "git commit -m '[ci skip] Upversion Build"
+						ssh "git push"
 					}
 				}
             }
