@@ -67,6 +67,7 @@ pipeline {
 						
 						sh "ssh-add /var/jenkins_home/.ssh/id_rsa"
 						sh "git switch develop"
+						sh "git pull"
 						sh "touch ${buildNumber}.txt"
 						sh "git add ."
 						sh "git commit -m '[ci-skip] Upversion Build'"
