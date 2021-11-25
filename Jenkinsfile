@@ -64,8 +64,9 @@ pipeline {
 					def buildNumber = "test_" + currentBuild.number
 					echo "The random number is: ${buildNumber}"
 					sshagent (credentials : ["${gitCreds}"]) {
-						sh "git switch develop"
+						
 						sh "ssh-add /var/jenkins_home/.ssh/id_rsa"
+						sh "git switch develop"
 						sh "touch ${buildNumber}.txt"
 						sh "git add ."
 						sh "git commit -m '[ci-skip] Upversion Build'"
